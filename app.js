@@ -1,6 +1,6 @@
 "use strict";
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser */
-// module.exports = { findTitles, addBook, showTitles, findAuthors, findIds }; //add all of your function names here that you need for the node mocha tests
+module.exports = { findTitles, addBook, showTitles, findAuthors, findIds }; //add all of your function names here that you need for the node mocha tests
 
 let library = [
   { title: "The Road Ahead", author: "Bill Gates", libraryID: 1254 },
@@ -27,14 +27,6 @@ function showTitles() {
 
   let textArea = document.getElementById("displayArea");
   textArea.innerHTML = titleString;
-
-  let bookTitles = [];
-
-  for (let i = 0; i < library.length; i++) {
-    let tit = library[i];
-    bookTitles.push(tit.title);
-  }
-  return bookTitles;
 }
 
 /**
@@ -43,12 +35,17 @@ function showTitles() {
  */
 function findTitles() {
   let titles = [];
-  titles = [
+  /*titles = [
     "Mockingjay: The Final Book of The Hunger Games",
     "The Road Ahead",
     "Walter Isaacson",
-  ]; //FIX THIS!!
+  ]; //FIX THIS!!*/
+
   // implement this and other functions
+  for (let i = 0; i < library.length; i++) {
+    let tit = library[i];
+    titles.push(tit.title);
+  }
   return titles;
 }
 
@@ -59,7 +56,7 @@ function findTitles() {
  * @returns {strings}
  */
 function addBook(title, author, libraryID) {
-  const title = document.getElementById("title").val;
+  //const title = document.getElementById("title").val;
 
   let newBook = {};
 

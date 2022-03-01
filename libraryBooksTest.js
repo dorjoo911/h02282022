@@ -4,9 +4,8 @@ const assert = require("assert"); //always need this with node
 const myExports = require("./app.js"); //with node need the name of your file with your functions here
 const findTitles = myExports.findTitles; //do this for all of the functions used in the Mocha tests
 const addBook = myExports.addBook;
-const showTitles = myExports.showTitles;
-const findIds = myExports.findIds;
 const findAuthors = myExports.findAuthors;
+const findIds = myExports.findIds;
 
 /* global assert findTitles findAuthors findIDs addBook showTitles*/
 /*
@@ -27,9 +26,9 @@ describe("library", function () {
   // ];
 
   const titles = [
-    "Mockingjay: The Final Book of The Hunger Games",
     "The Road Ahead",
     "Walter Isaacson",
+    "Mockingjay: The Final Book of The Hunger Games",
   ];
   const authors = ["Bill Gates", "Steve Jobs", "Suzanne Collins"];
   const ids = [1254, 3245, 4264];
@@ -43,13 +42,13 @@ describe("library", function () {
   });
 
   it("find ids", function () {
-    assert.deepEqual(findIDs(), ids);
+    assert.deepEqual(findIds(), ids);
   });
 
   it("add book", function () {
     const newBook = { title: "My New Book", author: "Me Too", libraryID: 1144 };
-    ids.push(1144);
+    ids.unshift(1144);
     assert.deepEqual(addBook("My New Book", "Me Too", 1144), newBook);
-    assert.deepEqual(findIDs(), ids);
+    assert.deepEqual(findIds(), ids);
   });
 });
